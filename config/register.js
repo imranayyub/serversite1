@@ -23,14 +23,14 @@ newuser.password=password;
 newuser.phone=phone;
 
 newuser.save(function (err,saveduser) {
+  res.setHeader('Content-Type', 'application/json');
   if(err)
   {
     console.log(err);
     return res.status(500).send();
   }
-  // res.setHeader('Content-Type', 'application/json');
-  // res.send(JSON.stringify({ a: 1 }, null, 3));
-  return res.status(200).send("Successfully registered");
+  // res.send();
+  return res.status(200).send(JSON.stringify({ username: username , password : password , phone: phone}, null, 3));
 });
 
 });

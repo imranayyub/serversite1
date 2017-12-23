@@ -79,7 +79,8 @@ app.use(body_parser.json());
 app.use(express.static(path.join(__dirname,'views/index.html')));
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost:27017/musiclist');
+mongoose.Promise=global.Promise;
+mongoose.connect('mongodb://localhost:27017/user',{useMongoClient: true});
 
 //on successful connection
 mongoose.connection.on('connected', function () {

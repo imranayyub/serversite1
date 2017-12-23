@@ -15,6 +15,7 @@ router.post('/', function (req, res, next) {
   var password=req.body.password;
 
   User.findOne({username : username, password : password},function (err,user) {
+    res.setHeader('Content-Type', 'application/json');
     if(err)
     {
       console.log(err);
@@ -22,9 +23,9 @@ router.post('/', function (req, res, next) {
     }
     if(!user)
     {
-      return res.status(404).send('not found');
+      return res.status(404).send({found : "not found"});
     }
-    return res.send('Record found');
+    return res.send(JSON.stringify({ found : "Found"}));
 
   });
 

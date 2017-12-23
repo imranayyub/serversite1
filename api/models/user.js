@@ -3,7 +3,8 @@ const mongoose= require('mongoose');
 const UserSchema=mongoose.Schema({
   username: {
     type: String,
-    required: true
+    required: true,
+    unique : true
   },
   password: {
     type: String,
@@ -12,7 +13,8 @@ const UserSchema=mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true
+    required: true,
+    unique : true
 
   }
 });
