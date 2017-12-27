@@ -23,7 +23,7 @@ router.post('/', function (req, res, next) {
     }
     if(!user)
     {
-      return res.status(404).send({found : "not found"});
+      return res.status(404).send(JSON.stringify({found : "not found"}));
     }
     return res.send(JSON.stringify({ found : "Found"}));
 
